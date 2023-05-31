@@ -1217,6 +1217,12 @@ video {
   justify-content: center;
 }
 
+.tour__item img {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
 .tour__item img:hover {
   --tw-scale-x: 1.05;
   --tw-scale-y: 1.05;
@@ -1225,14 +1231,17 @@ video {
 
 .tour__item {
   position: relative;
-  margin-top: 1.25rem;
-  margin-bottom: 1.25rem;
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
   display: flex;
-  height: 30rem;
+  max-height: 25rem;
   width: 100%;
   flex-direction: column;
   justify-content: center;
   background-repeat: no-repeat;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
 }
 
 .tour__item h5 {
@@ -1244,6 +1253,21 @@ video {
   font-weight: 700;
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.img__contain {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  height: 23rem;
+  width: 20rem;
+  align-items: center;
+  overflow: hidden;
 }
 
 .bg-primary {

@@ -190,13 +190,16 @@
         @apply w-full flex flex-col justify-center;
     }
     .tour__item img{
-        @apply hover:scale-105;
+        @apply hover:scale-105 transition-all;
     }
     .tour__item{
-        @apply h-[30rem] bg-no-repeat relative w-full flex flex-col justify-center my-5;
+        @apply max-h-[25rem] bg-no-repeat relative w-full flex flex-col justify-center my-10 transition-all;
     }
     .tour__item h5{
-        @apply absolute w-full bottom-0 text-[2rem] text-center font-bold text-white;
+        @apply absolute w-full bottom-0 text-[2rem] text-center font-bold text-white transition-all;
+    }
+    .img__contain{
+        @apply overflow-hidden h-[23rem] w-[20rem] my-5 flex items-center mx-auto;
     }
 
 }
