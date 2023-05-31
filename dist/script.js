@@ -3,6 +3,7 @@ const toggleMenu = document.querySelector('.toggle__menu');
 toggleMenu.addEventListener('click', ()=>{
     headerNav.classList.toggle('open');
     toggleMenu.classList.toggle('open');
+    closeCNav();
 });
 
 const contactNav = document.querySelector('.contact__nav');
@@ -10,7 +11,18 @@ const toggleContact = document.querySelector('.toggle__contact');
 toggleContact.addEventListener('click', ()=>{
     contactNav.classList.toggle('open');
     toggleContact.classList.toggle('open');
+    closehNav();
 });
+
+function closehNav(){
+    headerNav.classList.remove("open");
+    toggleMenu.classList.remove("open");
+}
+
+function closeCNav(){
+  contactNav.classList.remove("open");
+  toggleContact.classList.remove("open");
+}
 
 const nav = document.querySelectorAll(".header__nav ul li a");
 nav.forEach((baba) => {
