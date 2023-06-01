@@ -32,3 +32,26 @@ nav.forEach((baba) => {
   });
 });
 
+const servicesNav = document.querySelectorAll(".text__nav__link");
+const servicesContent = document.querySelectorAll(".text__content");
+servicesNav.forEach((serv) => {
+  serv.addEventListener("click", () => {
+    removeActiveStar();
+    serv.classList.add("active");
+    const activeContent = document.querySelector(`#${serv.id}-content`);
+    removeActiveContent();
+    activeContent.classList.add("active");
+  });
+});
+
+function removeActiveStar() {
+  servicesNav.forEach((serv) => {
+    serv.classList.remove("active");
+  });
+}
+
+function removeActiveContent() {
+  servicesContent.forEach((serv) => {
+    serv.classList.remove("active");
+  });
+}

@@ -3,24 +3,45 @@
 @tailwind utilities;
 
 .container{
-    @apply mx-auto p-[1.5rem] w-full max-w-[140rem];
+    @apply mx-auto p-[1.5rem] w-full max-w-[140rem] lg:max-w-[70rem];
 }
 
 @layer utilities{
     .btn{
-        @apply p-2 hover:text-white transition-all relative;
+        @apply p-2 transition-all relative;
     }
     .btn.blue{
-        @apply border-2 border-primary;
+        @apply border-2 border-primary hover:text-white;
     }
     .btn.white{
-        @apply border-2 border-white hover:border-primary transition-all;
+        @apply border-2 border-white hover:text-white hover:border-primary transition-all;
     }
-    .btn:hover span{
+    .btn:hover.blue span{
         @apply h-full w-full opacity-100 top-0 right-0;
     }
-    .btn span{
+    .btn:hover.white span{
+        @apply h-full w-full opacity-100 top-0 right-0;
+    }
+    .btn.blue span{
         @apply h-0 w-0 absolute block mx-auto bg-primary top-[50%] right-[50%] z-[-1] opacity-0 transition-all ease-in;
+    }
+    .btn.white span{
+        @apply h-0 w-0 absolute block mx-auto bg-primary top-[50%] right-[50%] z-[-1] opacity-0 transition-all ease-in;
+    }
+    .btn.primary{
+        @apply border-2 border-transparent bg-primary text-white hover:text-black hover:bg-transparent hover:border-black transition-all duration-500;
+    }
+    .btn.dark{
+        @apply border-2 border-black hover:bg-primary hover:border-transparent transition-all;
+    }
+    .btn.services{
+        @apply border-2 border-black hover:border-transparent hover:text-white transition-all;
+    }
+    .btn.services span{
+        @apply h-0 w-0 absolute block mx-auto bg-primary top-[50%] right-[50%] z-[-1] opacity-0 transition-all ease-in;
+    }
+    .btn:hover.services span{
+        @apply h-full w-full opacity-100 top-0 right-0;
     }
 }
 
@@ -186,20 +207,172 @@
     }
 
     /* ------------------------TOUR------------------- */
+    .tours{
+        @apply bg-grey lg:h-[30rem] relative;
+    }
+    .tours__wrapper{
+        @apply lg:-translate-y-[5rem] lg:w-[70rem];
+    }
+    .tours__wrapper a{
+        @apply flex items-center w-fit mx-auto font-semibold lg:my-[2rem];
+    }
+    .tours__wrapper a:hover span{
+        @apply w-[2rem] transition-all;
+    }
+    .tours__wrapper a span{
+        @apply w-[1rem] h-[.1rem] bg-black block translate-x-2 transition-all lg:h-[.11rem];
+    }
     .tour__img{
-        @apply w-full flex flex-col justify-center lg:flex-row;
+        @apply w-full flex flex-col justify-center lg:flex-row cursor-pointer;
     }
     .tour__item img{
-        @apply hover:scale-105 transition-all;
+        @apply hover:scale-110 transition-all duration-500;
     }
     .tour__item{
-        @apply max-h-[25rem] bg-no-repeat relative w-full flex flex-col justify-center my-10 transition-all;
+        @apply max-h-full bg-no-repeat relative w-full flex flex-col justify-center my-10 transition-all ;
     }
     .tour__item h5{
-        @apply absolute w-full bottom-0 text-[2rem] text-center font-bold text-white transition-all;
+        @apply absolute w-full bottom-5 text-[2rem] text-center font-bold text-white transition-all;
     }
     .img__contain{
-        @apply overflow-hidden h-[23rem] w-[20rem] my-5 flex items-center mx-auto;
+        @apply overflow-hidden max-h-[22.5rem] w-[20rem] my-5 flex items-center mx-auto;
+    }
+
+    /* ------------------------SERVICES-------------------- */
+    .services{
+        @apply py-[5rem];
+    }
+    .services__item{
+        @apply my-[3rem];
+    }
+    .services__item:first-child{
+        @apply flex flex-col justify-between lg:flex-row;
+    }
+    .services__text{
+        @apply lg:w-[30rem] text-center lg:text-left;
+    }
+    .services__text h1{
+        @apply text-[2rem] mt-[1rem] lg:text-[2.5rem] font-bold;
+    }
+    .services__text__nav{
+        @apply my-[2rem] relative;
+    }
+    .services__text__nav ul{
+        @apply flex flex-wrap items-center justify-center gap-2 lg:justify-between;
+    }
+    .services__text__nav ul li{
+        @apply relative;
+    }
+    .services__text__nav ul li span{
+        @apply hidden w-0 absolute h-[.2rem] z-10 bg-primary bottom-0 lg:block transition-all;
+    }
+    .services__text__nav ul li::before{
+        @apply content-[""] absolute block w-[110%] h-[.1rem] bg-slate-400 top-0 transition-all lg:hidden;
+    }
+    .services__text__nav ul li::after{
+        @apply content-[""] absolute block w-[110%] h-[.1rem] bg-slate-400 bottom-0 transition-all lg:w-[115%] lg:h-[.2rem];
+    }
+    .services__text__nav ul li a{
+        @apply text-[1.5rem] text-slate-300;
+    }
+    .text__nav__link.active span{
+        @apply w-full transition-all duration-700;
+    }
+    .text__nav__link.active a{
+        @apply text-primary transition-all;
+    }
+    .text__nav__link.active::before{
+        @apply bg-primary transition-all;
+    }
+    .text__nav__link.active::after{
+        @apply bg-primary transition-all lg:bg-slate-400;
+    }
+    .services__text__content{
+        @apply relative;
+    }
+    .text__content{
+        @apply absolute opacity-0 top-0 z-10  transition-all duration-200;
+    }
+    .text__content.active{
+        @apply relative opacity-100 duration-200 z-20 transition-all;
+    }
+    .text__content__actions{
+        @apply my-[2rem];
+    }
+    .services__item h1{
+        @apply text-[2rem] font-bold mb-[2rem];
+    }
+    .services__item:not(:first-child) h1{
+        @apply text-center;
+    }
+    .item__content{
+        @apply md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-[1rem];
+    }
+    .item__card{
+        @apply text-center flex flex-col items-center justify-center border-8 my-[2rem] p-[2rem] lg:m-0 lg:hover:border-transparent lg:hover:shadow-2xl transition-all duration-500;
+    }
+    .card__text h2{
+        @apply text-[1.3rem] hover:text-primary transition-all;
+    }
+    .card__text p{
+        @apply text-gray-400;
+    }
+    .place__item{
+        @apply relative my-[2rem] w-[30rem] lg:w-full mx-auto lg:flex lg:border-2 lg:gap-5 lg:items-center lg:justify-between transition-all duration-500;
+    }
+    .place__img img{
+        @apply w-fit transition-all duration-500;
+    }
+    .place__item:hover img{
+        @apply lg:scale-110 transition-all duration-500;
+    }
+    .place__img{
+        @apply overflow-hidden;
+    }
+    .place__img p{
+        @apply absolute top-0 right-0 px-[1rem] py-1 font-bold text-white bg-primary;
+    }
+    .rating{
+        @apply flex items-center gap-2;
+    }
+    .rating ul{
+        @apply flex items-center gap-2;
+    }
+    .rating ul li{
+        @apply relative text-[1.5rem] text-[#ffcc00] w-fit;
+    }
+    .place__text{
+        @apply my-[2rem];
+    }
+    .place__text h2{
+        @apply text-[1.5rem] hover:text-primary transition-all duration-500;
+    }
+    .place__text p{
+        @apply text-gray-400 my-[1rem];
+    }
+    .rating p{
+        @apply m-0;
+    }
+    .profile__content{
+        @apply flex flex-col justify-center items-center md:grid md:grid-cols-2 md:gap-2  lg:grid-cols-4;
+    }
+    .profile__item{
+        @apply my-[2rem];
+    }
+    .profile__item img{
+        @apply border-4 rounded-full border-gray-50 mx-auto lg:hover:-translate-y-4 lg:hover:border-primary transition-all;
+    }
+    .profile__item:hover img{
+        @apply lg:-translate-y-4 lg:border-primary transition-all;
+    }
+    .profile__text{
+        @apply bg-gray-100 w-[20rem] lg:w-[16rem] mx-auto text-center py-[2rem] px-[5rem] lg:px-[4rem];
+    }
+    .profile__text a{
+        @apply leading-[2rem] hover:text-primary transition-all duration-500;
+    }
+    .profile__text p{
+        @apply text-primary;
     }
 
 }
