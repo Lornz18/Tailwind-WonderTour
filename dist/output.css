@@ -1130,21 +1130,19 @@ video {
 
 /* -------------------BANNER------------------------ */
 
-.banner {
-  position: relative;
-}
-
 @media (min-width: 1024px) {
   .banner {
     padding-top: 9rem;
   }
 }
 
+.banner__container {
+  width: 100vw;
+}
+
 .banner__item {
-  margin-left: auto;
-  margin-right: auto;
   height: 100vh;
-  width: 70rem;
+  width: 100vw;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1153,7 +1151,6 @@ video {
 @media (min-width: 1024px) {
   .banner__item {
     height: 70vh;
-    width: 100vw;
   }
 }
 
@@ -1856,22 +1853,16 @@ video {
 
 /* -----------------------------BOOK----------------------- */
 
+.book {
+  width: 100%;
+}
+
 .book__wrapper {
-  display: flex;
   height: 23rem;
-  width: -moz-fit-content;
-  width: fit-content;
-  align-items: center;
+  width: 100%;
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
-  background-repeat: no-repeat;
-}
-
-@media (min-width: 1024px) {
-  .book__wrapper {
-    width: 100vw;
-  }
 }
 
 .book__text {
@@ -1952,6 +1943,7 @@ video {
 /* ------------------------USERS------------------------- */
 
 .users {
+  width: 100%;
   --tw-bg-opacity: 1;
   background-color: hsl(0 0% 96.86% / var(--tw-bg-opacity));
   padding-top: 5rem;
@@ -2019,6 +2011,7 @@ video {
 /* -----------------------YEARS--------------------- */
 
 .years {
+  width: 100%;
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
@@ -2071,22 +2064,19 @@ video {
 
 /* ------------------------DISCOUNT------------------------ */
 
+.discount {
+  width: 100%;
+}
+
 .discount__wrapper {
   display: flex;
   height: 20rem;
-  width: -moz-fit-content;
-  width: fit-content;
+  width: 100%;
   align-items: center;
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
-}
-
-@media (min-width: 1024px) {
-  .discount__wrapper {
-    width: 100vw;
-  }
 }
 
 .discount__text {
@@ -2333,11 +2323,16 @@ video {
   display: flex;
   height: -moz-fit-content;
   height: fit-content;
-  width: 100vw;
   flex-direction: column;
   --tw-bg-opacity: 1;
   background-color: hsl(0 0% 96.86% / var(--tw-bg-opacity));
   padding-bottom: 5rem;
+}
+
+@media (min-width: 1024px) {
+  .gallery {
+    width: 100%;
+  }
 }
 
 .gallery__text {
@@ -2355,6 +2350,8 @@ video {
 }
 
 .gallery__wrapper {
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2413,8 +2410,8 @@ video {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
   display: flex;
-  height: 11rem;
-  width: 16.1rem;
+  height: 13rem;
+  width: 18.5rem;
   align-items: center;
   justify-content: center;
   border-width: 2px;
@@ -2431,8 +2428,70 @@ video {
 
 @media (min-width: 1024px) {
   .gallery__item__img i {
+    height: 10rem;
+    width: 14.7rem;
     opacity: 0;
   }
+}
+
+/* -----------------------LINKS------------------------- */
+
+.links {
+  --tw-bg-opacity: 1;
+  background-color: hsl(208.7 51.11% 17.65% / var(--tw-bg-opacity));
+}
+
+.links__contact {
+  display: flex;
+  flex-direction: column;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.links__contact h5 {
+  text-align: center;
+  font-weight: 600;
+}
+
+.links__contact table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.links__contact table tr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+}
+
+.links__contact table tr td:last-child {
+  width: 14rem;
+}
+
+.links__contact td {
+  font-size: 1.2rem;
+}
+
+.links__contact a {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+.links__contact a:hover {
+  --tw-text-opacity: 1;
+  color: hsl(175.96 98.89% 35.29% / var(--tw-text-opacity));
+}
+
+.links__contact td i {
+  --tw-text-opacity: 1;
+  color: hsl(175.96 98.89% 35.29% / var(--tw-text-opacity));
+}
+
+.table {
+  display: table;
 }
 
 .bg-primary {
@@ -2674,11 +2733,6 @@ video {
   justify-content: center;
 }
 
-.gallery .tns-outer {
-  margin-left: auto;
-  margin-right: auto;
-}
-
 @media (min-width: 1024px) {
   .gallery .tns-outer {
     margin-left: 5rem;
@@ -2689,12 +2743,13 @@ video {
 .tns-controls {
   position: absolute;
   top: 50%;
+  right: 0px;
   left: 0px;
   z-index: 10;
   margin-left: 2rem;
   margin-right: 2rem;
   display: flex;
-  width: 116rem;
+  max-width: 106rem;
   align-items: center;
   justify-content: space-between;
 }
